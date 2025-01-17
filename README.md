@@ -44,6 +44,15 @@ I think the original captured whether the entrances were horizontal or vertical,
 
 So lets say we've 50 variations of the above. We select the `start.json` that acts as our hub. Think of it like the rogue encampment town in the first act of Diablo 2. `start` has an exit in a random direction. We then branch out from there, selecting a random variation with a suitable connecting exit. So if town exit leads left we want a room with an exit that leads right. 
 It should include one exit in all other directions. We add those exits to a list of doorways that need to be branched out from - but until then, we'll create ghost rooms. Ghost rooms are placeholders that prevent us from placing rooms that overlap with where a room will be placed later. Ghost rooms are 5x5 - the minimal size a room can be. If there's no enough space to place a 5x5 room the chosen variation should be discarded. This is a bit complicated.
+
 We can use a sql database to store our pieces so we can quickly find which piece is suitable for us to place, it'll save us from loop-loading up random json files until we find a compatible piece.
+
 **NOTE: Check whether the sql extension works in the browser release**.
 Because I can't be bothered to manually write out all the rooms in the database I'll just write each .json file to the database at the start of runtime.
+
+# 17/1/2024 @ 1:44am
+
+How are we going to handle item behaviour?
+
+I guess when we equip an item it'll subscribe to the behaviour which triggers its own behaviour.
+Not sure that'll work for changing controls. Maybe attack / projectile direction will be repesented by a value and that value will be offset by the item. Oh. Yeah that works. Like on equip you invert a value and invert it again on re-equip. That way you could have a second item that counters the invert so you essentially get all the benefit without the negative. Yeah idk, we'll see. Kind of irrelevent right now.

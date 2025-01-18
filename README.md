@@ -56,3 +56,8 @@ How are we going to handle item behaviour?
 
 I guess when we equip an item it'll subscribe to the behaviour which triggers its own behaviour.
 Not sure that'll work for changing controls. Maybe attack / projectile direction will be repesented by a value and that value will be offset by the item. Oh. Yeah that works. Like on equip you invert a value and invert it again on re-equip. That way you could have a second item that counters the invert so you essentially get all the benefit without the negative. Yeah idk, we'll see. Kind of irrelevent right now.
+
+# 18/1/2024 @ 3:37am
+
+Pretty bad start to day 1. Sorta went in circles all afternoon trying to get some old code working. It's frustrating, I seem to write my best code while I'm not at home.
+Since my old room data is written in XML I'm gonna try re-use them.

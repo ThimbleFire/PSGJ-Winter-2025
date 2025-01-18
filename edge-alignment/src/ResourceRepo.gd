@@ -5,6 +5,7 @@ var database: SQLite
 func _ready() -> void:
 	database = SQLite.new()
 	database.path = "res://access_points.db"
+	database.open_db()
 
 func load_file(path: String, serialize_direction: bool) -> Dictionary:
 	var dataFile = FileAccess.open(path, FileAccess.READ)
@@ -19,14 +20,12 @@ func load_file(path: String, serialize_direction: bool) -> Dictionary:
 
 func populate_database() -> void:
 	var keystone_path = "res://Tiled Data/"
-	database.open_db()
 	database.query("DELETE FROM AccessPoints;")
 	database.query("DELETE FROM AccessPointCounts;")
 	
 	var dir = DirAccess.open(keystone_path)
 	if not dir:
 		print("failed to open directory")
-		database.close_db()
 		return
 		
 	dir.list_dir_begin()
@@ -44,17 +43,19 @@ func populate_database() -> void:
 	database.close_db()
 
 func get_filtered(doorway) -> Dictionary:
-	database.open_db()
 	var dir: int = 0 if doorway == Vector2i.UP else 1 if doorway == Vector2i.RIGHT else 2 if doorway == Vector2i.DOWN else 3
 	
-	var room_limit = 2
+	#mapfacotry.placed_rooms + mapfactory.available_entrances <= room_limit? if true: return paths where access_point_count is greater than 1, else return access_point_count where access_point_count is equal to 1 
 	var query = """
 		SELECT path
 		FROM AccessPointCounts
-		WHERE access_point_count + ? <= ?
+		WHERE (CASE 
+		WHEN (? + ? <= ?) THEN access_point_count > 1
+		ELSE access_point_count = 1
+		END)
 		"""
 		
-	var result = database.query_with_bindings(query, [mapfactory.placed_rooms, room_limit])
+	var result = database.query_with_bindings(query, [mapfactory.placed_rooms, mapfactory.available_entrances, mapfactory.room_limit])
 	if !result:
 		print("no valid paths found")
 	
@@ -72,3 +73,6 @@ func get_filtered(doorway) -> Dictionary:
 	var suitable_rooms: Array = database.query_result
 	
 	return load_file("res://Tiled Data/" + suitable_rooms.pick_random()["path"], true)
+
+func _exit_tree() -> void:
+	database.close_db()

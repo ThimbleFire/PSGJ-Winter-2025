@@ -136,4 +136,4 @@ script = ExtResource("1_fmllm")
 tile_set = SubResource("TileSet_u4iey")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(579, 321)
+position = Vector2(571, 321)

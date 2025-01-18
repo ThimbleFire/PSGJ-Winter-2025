@@ -2,8 +2,8 @@ class_name MapFactory extends Node
 
 var available_entrances: int = 0
 var placed_rooms: int = 0
-var room_limit = 19
-var board_size = 128
+var room_limit = 256
+var board_size = 32
 
 func build(tilemap: TileMapLayer) -> void:
 	placed_rooms = 0
@@ -44,8 +44,12 @@ func build(tilemap: TileMapLayer) -> void:
 		if result:
 			continue
 
+		result = rooms_collide(child_prototypes, prototypes)
+		if result:
+			continue
 		print("removed ghost. Count at: ", prototypes.size())
 		prototypes.erase(prototype)
+
 
 		result = room_collide(child, prototypes)
 		if result:

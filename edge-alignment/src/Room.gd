@@ -60,7 +60,7 @@ func collides_with(other: Room) -> bool:
 	return rect.overlaps(other.rect)
 
 func Init_Start(tilemap: TileMapLayer) -> void:
-	chunk = ResourceRepository.load_file("res://Tiled Data/crossroad.json", true)
+	chunk = ResourceRepository.load_file("res://Tiled Data/E_AP.json", true)
 
 	left = mapfactory.board_size / 2
 	top = mapfactory.board_size / 2
@@ -88,6 +88,7 @@ func Init_Ghost(parent: Room, access_point: Dictionary) -> void:
 	top += offset.y * (radius_y + parent.radius_y + 1)
 
 	self.parent = parent
+	print("added ghost")
 
 func Init_Room(parent: Room, access_point: Dictionary, t: bool, tilemap: TileMapLayer) -> void:
 	parent_output = access_point
@@ -95,11 +96,11 @@ func Init_Room(parent: Room, access_point: Dictionary, t: bool, tilemap: TileMap
 	input_direction = -parent_output["direction"]
 	chunk = ResourceRepository.get_filtered(input_direction)
 
-	var radius_x = (chunk["width"] - 1) / 2
-	var radius_y = (chunk["height"] - 1) / 2
-
 	width = chunk["width"]
 	height = chunk["height"]
+	
+	var radius_x = (width - 1) / 2
+	var radius_y = (height - 1) / 2
 
 	top = parent.center_y - radius_y
 	left = parent.center_x - radius_x
@@ -115,8 +116,10 @@ func remove_access_point(direction: Vector2i) -> void:
 	for i in range(chunk["access_points"].size()):
 		if chunk["access_points"][i]["direction"] == direction:
 			chunk["access_points"].remove_at(i)
+			print("removed access point")
 			break
 	mapfactory.available_entrances -= 1
+	print("lowered available entrances down to ", mapfactory.available_entrances)
 	
 func build() -> void:
 	var width:int = chunk["width"]
@@ -132,3 +135,4 @@ func build() -> void:
 	# use the global tilemap ref to add the room to the game
 	mapfactory.available_entrances += chunk["access_points"].size()
 	mapfactory.placed_rooms += 1
+	print("increased available entrances up to ", mapfactory.available_entrances, " and placed rooms to ", mapfactory.placed_rooms)

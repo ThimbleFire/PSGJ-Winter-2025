@@ -3,7 +3,7 @@
  "infinite":false,
  "access_points":[
 	{
-	"direction": 2,
+	"direction": 0,
 	"axis": 0,
 	"size": 3
 	},

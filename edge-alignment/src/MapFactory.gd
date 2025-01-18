@@ -2,7 +2,7 @@ class_name MapFactory extends Node
 
 var available_entrances: int = 0
 var placed_rooms: int = 0
-var room_limit = 16
+var room_limit = 19
 var board_size = 128
 
 func build(tilemap: TileMapLayer) -> void:
@@ -13,6 +13,7 @@ func build(tilemap: TileMapLayer) -> void:
 	var rooms: Array[Room] = [Room.new()]
 	rooms.front().Init_Start(tilemap)
 	var prototypes: Array = rooms.front().get_prototypes()
+	print("added ghost. Count at: ", prototypes.size())
 
 	while !prototypes.is_empty():
 		var index: int = rand.randi_range(0, prototypes.size() - 1)
@@ -23,15 +24,17 @@ func build(tilemap: TileMapLayer) -> void:
 		var child = Room.new()
 		child.Init_Room(parent, prototype.parent_output, true, tilemap)
 
-		var result = is_in_bounds([child])
-		if !result:
-			continue
+		var result: bool
+		
+		#result = is_in_bounds([child])
+		#if !result:
+			#continue
 
 		var child_prototypes: Array[Room] = child.get_prototypes()
-
-		result = is_in_bounds(child_prototypes)
-		if !result:
-			continue
+#
+		#result = is_in_bounds(child_prototypes)
+		#if !result:
+			#continue
 
 		result = room_collide(child, rooms)
 		if result: 
@@ -41,16 +44,19 @@ func build(tilemap: TileMapLayer) -> void:
 		if result:
 			continue
 
+		print("removed ghost. Count at: ", prototypes.size())
 		prototypes.erase(prototype)
 
 		result = room_collide(child, prototypes)
 		if result:
 			prototypes.push_back(prototype)
+			print("added ghost. Count at: ", prototypes.size())
 			continue
 
 		rooms.push_back(child)
 		parent.remove_access_point(child.parent_output["direction"])
 		prototypes.append_array(child.get_prototypes())
+		print("added ghost. Count at: ", prototypes.size())
 		child.build()
 		child.remove_access_point(child.input_direction)
 

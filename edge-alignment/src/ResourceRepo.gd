@@ -50,29 +50,32 @@ func get_filtered(doorway) -> Dictionary:
 		SELECT path
 		FROM AccessPointCounts
 		WHERE (CASE 
-		WHEN (? + ? <= ?) THEN access_point_count > 1
-		ELSE access_point_count = 1
+		WHEN (? + ? >= ?) THEN access_point_count = 1
+		ELSE access_point_count > 1 AND access_point_count < ?
 		END)
 		"""
-		
-	var result = database.query_with_bindings(query, [mapfactory.placed_rooms, mapfactory.available_entrances, mapfactory.room_limit])
-	if !result:
-		print("no valid paths found")
-	
-	var rooms_whos_exit_points_do_not_exceed_room_limit: Array = database.query_result
-	
+	var result = database.query_with_bindings(query, [mapfactory.placed_rooms, mapfactory.available_entrances, mapfactory.room_limit, mapfactory.room_limit - mapfactory.placed_rooms + mapfactory.available_entrances])
+	var rooms: Array = database.query_result.duplicate()
+
+	# Second query: Get directions for the paths
 	query = """
-		SELECT path
-		FROM AccessPoints
-		WHERE direction == ?
-		"""
-	result = database.query_with_bindings(query, [dir])
-	if !result:
-		print("no valid paths found")
-		
-	var suitable_rooms: Array = database.query_result
+	SELECT path, direction
+	FROM AccessPoints
+	WHERE direction == ?
+	"""
+	database.query_with_bindings(query, [dir])
+	var query_result: Array = database.query_result
+	# Get the paths that match the desired direction
+	var suitable_rooms: Array = []
+	for room in rooms:
+		for row in query_result:
+			if row["path"] == room["path"]:
+				suitable_rooms.append(room)
+				break
 	
-	return load_file("res://Tiled Data/" + suitable_rooms.pick_random()["path"], true)
+	var path = suitable_rooms.pick_random()["path"]
+	print("selected chunk: ", path)
+	return load_file("res://Tiled Data/" + path, true)
 
 func _exit_tree() -> void:
 	database.close_db()

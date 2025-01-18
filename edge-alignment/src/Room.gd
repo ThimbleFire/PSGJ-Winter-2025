@@ -61,7 +61,7 @@ func collides_with(other: Room) -> bool:
 	return rect.overlaps(other.rect)
 
 func Init_Start() -> void:
-	chunk = ResourceRepository.load_file("res://Tiled Data/crossroad.json")
+	chunk = ResourceRepository.load_file("res://Tiled Data/crossroad.json", true)
 
 	width = chunk.width
 	height = chunk.height
@@ -93,11 +93,11 @@ func Init_Room(parent: Room, access_point: Dictionary, t: bool) -> void:
 	input_direction = -parent_output["direction"]
 	chunk = ResourceRepository.get_filtered(input_direction)
 
-	var radius_x = chunk.radius_x
-	var radius_y = chunk.radius_y
+	var radius_x = (chunk["width"] - 1) / 2
+	var radius_y = (chunk["height"] - 1) / 2
 
-	width = 1 + radius_x * 2
-	height = 1 + radius_y * 2
+	width = chunk["width"]
+	height = chunk["height"]
 
 	top = parent.center_y - radius_y
 	left = parent.center_x - radius_x

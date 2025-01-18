@@ -52,10 +52,11 @@ func rooms_collide(children: Array[Room], rooms: Array[Room]) -> bool:
 			return true
 	return false
 
-func room_collide(room: Room, rooms: Array[Room]) -> bool:
+func room_collide(room: Room, rooms) -> bool:
 	for item in rooms:
-		if room.collides_with(item):
+		if room.rect.intersects(item.rect):
 			if item.parent == room:
 				continue
-		return true
+			print(room.rect, " intersects with ", item.rect)
+			return true
 	return false

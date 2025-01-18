@@ -22,22 +22,22 @@
 		}],
  "access_points":[
 	{
-	"direction": [0, 1],
+	"direction": 0,
 	"axis": 0,
 	"size": 3
 	},
 	{
-	"direction": [0, -1],
+	"direction": 2,
 	"axis": 0,
 	"size": 3
 	},
 	{
-	"direction": [1, 0],
+	"direction": 1,
 	"axis": 1,
 	"size": 3
 	},
 	{
-	"direction": [-1, 0],
+	"direction": 3,
 	"axis": 1,
 	"size": 3
 	},

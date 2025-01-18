@@ -1,25 +1,37 @@
 { "compressionlevel":-1,
  "height":7,
  "infinite":false,
+ "access_points":[
+	{
+	"direction": 2,
+	"axis": 0,
+	"size": 3
+	},
+	{
+	"direction": 3,
+	"axis": 1,
+	"size": 3
+	},
+	],
  "layers":[
-        {
-         "data":[12, 13, 29, 30, 31, 16, 17,
-            13, 24, 36, 37, 36, 27, 28,
-            26, 19, 18, 19, 20, 38, 39,
-            41, 30, 29, 30, 31, 38, 50,
-            47, 41, 40, 41, 42, 38, 39,
-            72, 46, 47, 48, 47, 49, 50,
-            56, 59, 57, 58, 59, 60, 61],
-         "height":7,
-         "id":1,
-         "name":"Tile Layer 1",
-         "opacity":1,
-         "type":"tilelayer",
-         "visible":true,
-         "width":7,
-         "x":0,
-         "y":0
-        }],
+		{
+		 "data":[12, 13, 29, 30, 31, 16, 17,
+			13, 24, 36, 37, 36, 27, 28,
+			26, 19, 18, 19, 20, 38, 39,
+			41, 30, 29, 30, 31, 38, 50,
+			47, 41, 40, 41, 42, 38, 39,
+			72, 46, 47, 48, 47, 49, 50,
+			56, 59, 57, 58, 59, 60, 61],
+		 "height":7,
+		 "id":1,
+		 "name":"Tile Layer 1",
+		 "opacity":1,
+		 "type":"tilelayer",
+		 "visible":true,
+		 "width":7,
+		 "x":0,
+		 "y":0
+		}],
  "nextlayerid":2,
  "nextobjectid":1,
  "orientation":"orthogonal",
@@ -27,10 +39,10 @@
  "tiledversion":"1.11.0",
  "tileheight":16,
  "tilesets":[
-        {
-         "firstgid":1,
-         "source":"Tileset.tsx"
-        }],
+		{
+		 "firstgid":1,
+		 "source":"Tileset.tsx"
+		}],
  "tilewidth":16,
  "type":"map",
  "version":"1.10",

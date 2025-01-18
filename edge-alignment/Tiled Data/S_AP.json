@@ -1,0 +1,38 @@
+{ "compressionlevel":-1,
+ "height":7,
+ "infinite":false,
+ "layers":[
+        {
+         "data":[12, 13, 13, 14, 15, 16, 17,
+            23, 24, 25, 26, 26, 27, 28,
+            12, 35, 18, 19, 20, 38, 39,
+            23, 35, 29, 30, 31, 38, 50,
+            34, 35, 40, 41, 42, 38, 39,
+            45, 46, 36, 37, 36, 49, 50,
+            56, 70, 37, 36, 37, 67, 61],
+         "height":7,
+         "id":1,
+         "name":"Tile Layer 1",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":7,
+         "x":0,
+         "y":0
+        }],
+ "nextlayerid":2,
+ "nextobjectid":1,
+ "orientation":"orthogonal",
+ "renderorder":"right-down",
+ "tiledversion":"1.11.0",
+ "tileheight":16,
+ "tilesets":[
+        {
+         "firstgid":1,
+         "source":"Tileset.tsx"
+        }],
+ "tilewidth":16,
+ "type":"map",
+ "version":"1.10",
+ "width":7
+}

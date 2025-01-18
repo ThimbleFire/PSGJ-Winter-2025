@@ -1,0 +1,218 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "crossroad.json",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "EW_AP.json": {
+            "scale": 4,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 69.375,
+                "y": 75.625
+            }
+        },
+        "E_AP.json": {
+            "scale": 5.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 66.0909090909091,
+                "y": 61.90909090909091
+            }
+        },
+        "NE_AP.json": {
+            "scale": 4,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 69.375,
+                "y": 75.625
+            }
+        },
+        "NS_AP.json": {
+            "scale": 5.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 69.18181818181819,
+                "y": 78.27272727272728
+            }
+        },
+        "NW_AP.json": {
+            "scale": 5.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 63.36363636363636,
+                "y": 61.54545454545455
+            }
+        },
+        "N_AP.json": {
+            "scale": 7.693303571428571,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 55.95775546915802,
+                "y": 55.957755469158016
+            }
+        },
+        "SENW_AP.json": {
+            "scale": 4,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 69.375,
+                "y": 75.625
+            }
+        },
+        "SEN_AP.json": {
+            "scale": 5.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 69.18181818181819,
+                "y": 78.27272727272728
+            }
+        },
+        "SEW_AP.json": {
+            "scale": 5.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 70.45454545454545,
+                "y": 63.54545454545455
+            }
+        },
+        "SE_AP.json": {
+            "scale": 7.693303571428571,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 55.95775546915802,
+                "y": 55.957755469158016
+            }
+        },
+        "SE_AP.tmj": {
+            "scale": 4,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 56.625,
+                "y": 37.125
+            }
+        },
+        "SW_AP.json": {
+            "scale": 4,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 56.625,
+                "y": 37.125
+            }
+        },
+        "SW_AP.tmj": {
+            "scale": 4,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 56.625,
+                "y": 37.125
+            }
+        },
+        "S_AP.json": {
+            "scale": 5.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 66.0909090909091,
+                "y": 61.90909090909091
+            }
+        },
+        "Tileset.tsx": {
+            "scaleInDock": 3,
+            "scaleInEditor": 4
+        },
+        "W_AP.json": {
+            "scale": 5.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 66.0909090909091,
+                "y": 61.90909090909091
+            }
+        },
+        "W_AP.tmj": {
+            "scale": 5.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 66.0909090909091,
+                "y": 61.90909090909091
+            }
+        },
+        "crossroad.json": {
+            "scale": 5.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 60.81818181818181,
+                "y": 62.09090909090911
+            }
+        },
+        "rooms/4-way.json": {
+            "scale": 2.410625,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 80.06222452683433,
+                "y": 79.85480943738658
+            }
+        },
+        "rooms/town.json": {
+            "scale": 1.73486328125,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 255.92794821277795,
+                "y": 256.21615536166615
+            }
+        },
+        "vertical.json": {
+            "scale": 7.693303571428571,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 55.95775546915802,
+                "y": 55.957755469158016
+            }
+        }
+    },
+    "last.imagePath": "/home/lojith/edge-alignment/sprites",
+    "map.height": 7,
+    "map.lastUsedFormat": "json",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 7,
+    "openFiles": [
+        "SW_AP.json",
+        "EW_AP.json",
+        "W_AP.json",
+        "NS_AP.json",
+        "NW_AP.json",
+        "S_AP.json",
+        "E_AP.json",
+        "SE_AP.json",
+        "NE_AP.json",
+        "SEW_AP.json",
+        "SEN_AP.json",
+        "vertical.json",
+        "crossroad.json"
+    ],
+    "project": "rooms.tiled-project",
+    "recentFiles": [
+        "SW_AP.json",
+        "EW_AP.json",
+        "W_AP.json",
+        "NS_AP.json",
+        "NW_AP.json",
+        "S_AP.json",
+        "E_AP.json",
+        "SE_AP.json",
+        "NE_AP.json",
+        "SEW_AP.json",
+        "SEN_AP.json",
+        "vertical.json"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}

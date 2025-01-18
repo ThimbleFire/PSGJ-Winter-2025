@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdc0ejjd47u5q"]
+
+[ext_resource type="Texture2D" uid="uid://cxtxi4vrbcr0f" path="res://tiles.png" id="1_awexs"]
+[ext_resource type="Script" path="res://src/MapGen.gd" id="1_fmllm"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3bc3p"]
+texture = ExtResource("1_awexs")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_u4iey"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_3bc3p")
+
+[node name="Master" type="Node2D"]
+script = ExtResource("1_fmllm")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_u4iey")

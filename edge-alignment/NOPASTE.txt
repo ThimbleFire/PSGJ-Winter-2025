@@ -1,0 +1,3 @@
+Load up all prefabs
+
+Write them to an SQL table for fast searching

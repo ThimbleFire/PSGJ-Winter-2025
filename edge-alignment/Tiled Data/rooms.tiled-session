@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "something_else.json",
+    "activeFile": "E_AP.json",
     "expandedProjectPaths": [
         "."
     ],
@@ -21,8 +21,8 @@
             "scale": 4,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 160.125,
-                "y": 99.375
+                "x": 87.375,
+                "y": 70.125
             }
         },
         "NE_AP.json": {
@@ -204,17 +204,16 @@
     "map.tileWidth": 16,
     "map.width": 31,
     "openFiles": [
-        "E_AP.json",
-        "something_else.json"
+        "E_AP.json"
     ],
     "project": "rooms.tiled-project",
     "recentFiles": [
+        "E_AP.json",
         "Tileset.tsx",
         "something_else.json",
         "crossroad.json",
         "N_AP.json",
         "NW_AP.json",
-        "E_AP.json",
         "NE_AP.json",
         "SW_AP.json",
         "S_AP.json",

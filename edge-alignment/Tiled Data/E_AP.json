@@ -1,13 +1,6 @@
 { "compressionlevel":-1,
  "height":7,
  "infinite":false,
- "access_points":[
-	{
-	"direction": 1,
-	"axis": 1,
-	"size": 3
-	}
-	],
  "layers":[
 		{
 		 "data":[12, 13, 13, 14, 15, 16, 17,

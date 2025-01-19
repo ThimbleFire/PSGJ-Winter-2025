@@ -60,7 +60,7 @@ func collides_with(other: Room) -> bool:
 	return rect.overlaps(other.rect)
 
 func Init_Start(tilemap: TileMapLayer) -> void:
-	chunk = ResourceRepository.load_file("res://Tiled Data/E_AP.json", true)
+	chunk = ResourceRepository.load_file("town.json", true)
 
 	left = mapfactory.board_size / 2
 	top = mapfactory.board_size / 2

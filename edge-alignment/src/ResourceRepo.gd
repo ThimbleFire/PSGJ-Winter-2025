@@ -8,10 +8,17 @@ func _ready() -> void:
 	database.open_db()
 
 func load_file(path: String, serialize_direction: bool) -> Dictionary:
-	var dataFile = FileAccess.open(path, FileAccess.READ)
+	var dataFile = FileAccess.open("res://Tiled Data/" + path, FileAccess.READ)
 	var parsedResult = JSON.parse_string(dataFile.get_as_text())
 	if !(parsedResult is Dictionary):
 		printerr("Can't load json file at path: ", path)
+		
+	var result = database.query_with_bindings("SELECT direction FROM AccessPoints WHERE path = ?", [path])
+	if !result:
+		print("no direction where path is ", path)
+		return {}
+	
+	parsedResult["access_points"] = database.query_result.duplicate()
 	if serialize_direction:
 		var arr = parsedResult["access_points"]
 		for i in arr:
@@ -32,6 +39,9 @@ func populate_database() -> void:
 	var file = dir.get_next()
 	while file != "":
 		if file.ends_with(".json"):
+			if file == "town.json":
+				file = dir.get_next()
+				continue
 			print("loading ", keystone_path, file)
 			var data: Dictionary = load_file(keystone_path + file, false)
 			for access_point in data["access_points"]:
@@ -50,11 +60,11 @@ func get_filtered(doorway) -> Dictionary:
 		SELECT path
 		FROM AccessPointCounts
 		WHERE (CASE 
-		WHEN (? + ? >= ?) THEN access_point_count = 1
+		WHEN (? >= ?) THEN access_point_count = 1
 		ELSE access_point_count > 1 AND access_point_count < ?
 		END)
 		"""
-	var result = database.query_with_bindings(query, [mapfactory.placed_rooms, mapfactory.available_entrances, mapfactory.room_limit, mapfactory.room_limit - mapfactory.placed_rooms + mapfactory.available_entrances])
+	var result = database.query_with_bindings(query, [mapfactory.placed_rooms + mapfactory.available_entrances, mapfactory.room_limit, mapfactory.room_limit - mapfactory.placed_rooms + mapfactory.available_entrances])
 	var rooms: Array = database.query_result.duplicate()
 
 	# Second query: Get directions for the paths
@@ -75,7 +85,7 @@ func get_filtered(doorway) -> Dictionary:
 	
 	var path = suitable_rooms.pick_random()["path"]
 	print("selected chunk: ", path)
-	return load_file("res://Tiled Data/" + path, true)
+	return load_file(path, true)
 
 func _exit_tree() -> void:
 	database.close_db()

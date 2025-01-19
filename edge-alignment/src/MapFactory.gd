@@ -2,7 +2,7 @@ class_name MapFactory extends Node
 
 var available_entrances: int = 0
 var placed_rooms: int = 0
-var room_limit = 256
+var room_limit = 10
 var board_size = 32
 
 func build(tilemap: TileMapLayer) -> void:
@@ -26,7 +26,7 @@ func build(tilemap: TileMapLayer) -> void:
 
 		var child_prototypes: Array[Room] = child.get_prototypes()
 
-  var result: bool
+		var result: bool
 		result = room_collide(child, rooms)
 		if result: 
 			continue

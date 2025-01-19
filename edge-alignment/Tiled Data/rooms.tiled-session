@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "crossroad.json",
+    "activeFile": "something_else.json",
     "expandedProjectPaths": [
         "."
     ],
@@ -18,11 +18,11 @@
             }
         },
         "E_AP.json": {
-            "scale": 5.5,
+            "scale": 4,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 66.0909090909091,
-                "y": 61.90909090909091
+                "x": 160.125,
+                "y": 99.375
             }
         },
         "NE_AP.json": {
@@ -45,8 +45,8 @@
             "scale": 5.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 63.36363636363636,
-                "y": 61.54545454545455
+                "x": 59.54545454545456,
+                "y": 59.18181818181819
             }
         },
         "N_AP.json": {
@@ -69,16 +69,16 @@
             "scale": 5.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 69.18181818181819,
-                "y": 78.27272727272728
+                "x": 56,
+                "y": 55.909090909090914
             }
         },
         "SEW_AP.json": {
             "scale": 5.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 70.45454545454545,
-                "y": 63.54545454545455
+                "x": 56,
+                "y": 56.09090909090909
             }
         },
         "SE_AP.json": {
@@ -122,7 +122,8 @@
             }
         },
         "Tileset.tsx": {
-            "scaleInDock": 3,
+            "dynamicWrapping": false,
+            "scaleInDock": 1.5,
             "scaleInEditor": 4
         },
         "W_AP.json": {
@@ -165,6 +166,27 @@
                 "y": 256.21615536166615
             }
         },
+        "something_else.json": {
+            "scale": 1.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 235,
+                "y": 113.66666666666666
+            }
+        },
+        "tiles.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 4,
+            "scaleInEditor": 1
+        },
+        "town.json": {
+            "scale": 2.7779017857142856,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 127.97428686219367,
+                "y": 61.01727601446364
+            }
+        },
         "vertical.json": {
             "scale": 7.693303571428571,
             "selectedLayer": 0,
@@ -174,42 +196,33 @@
             }
         }
     },
-    "last.imagePath": "/home/lojith/edge-alignment/sprites",
-    "map.height": 7,
+    "last.externalTilesetPath": "/home/lojith/Documents/GitHub/PSGJ-Winter-2025/edge-alignment/Tiled Data",
+    "last.imagePath": "/home/lojith/Documents/GitHub/PSGJ-Winter-2025/edge-alignment/sprites",
+    "map.height": 15,
     "map.lastUsedFormat": "json",
     "map.tileHeight": 16,
     "map.tileWidth": 16,
-    "map.width": 7,
+    "map.width": 31,
     "openFiles": [
-        "SW_AP.json",
-        "EW_AP.json",
-        "W_AP.json",
-        "NS_AP.json",
-        "NW_AP.json",
-        "S_AP.json",
         "E_AP.json",
-        "SE_AP.json",
-        "NE_AP.json",
-        "SEW_AP.json",
-        "SEN_AP.json",
-        "vertical.json",
-        "crossroad.json"
+        "something_else.json"
     ],
     "project": "rooms.tiled-project",
     "recentFiles": [
-        "SW_AP.json",
-        "EW_AP.json",
-        "W_AP.json",
-        "NS_AP.json",
+        "Tileset.tsx",
+        "something_else.json",
+        "crossroad.json",
+        "N_AP.json",
         "NW_AP.json",
-        "S_AP.json",
         "E_AP.json",
-        "SE_AP.json",
         "NE_AP.json",
-        "SEW_AP.json",
+        "SW_AP.json",
+        "S_AP.json",
+        "SE_AP.json",
         "SEN_AP.json",
-        "vertical.json"
+        "SEW_AP.json"
     ],
+    "tileset.lastUsedFilter": "Tiled tileset files (*.tsx *.xml)",
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
         "height": 16,

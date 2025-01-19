@@ -90,7 +90,7 @@ func Init_Ghost(parent: Room, access_point: Dictionary) -> void:
 	self.parent = parent
 	print("added ghost")
 
-func Init_Room(parent: Room, access_point: Dictionary, t: bool, tilemap: TileMapLayer) -> void:
+func Init_Room(parent: Room, access_point: Dictionary, tilemap: TileMapLayer) -> void:
 	parent_output = access_point
 	var offset: Vector2i = parent_output["direction"]
 	input_direction = -parent_output["direction"]

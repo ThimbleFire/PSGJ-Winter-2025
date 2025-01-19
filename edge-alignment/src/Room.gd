@@ -88,7 +88,6 @@ func Init_Ghost(parent: Room, access_point: Dictionary) -> void:
 	top += offset.y * (radius_y + parent.radius_y + 1)
 
 	self.parent = parent
-	print("added ghost")
 
 func Init_Room(parent: Room, access_point: Dictionary, tilemap: TileMapLayer) -> void:
 	parent_output = access_point
@@ -112,27 +111,23 @@ func Init_Room(parent: Room, access_point: Dictionary, tilemap: TileMapLayer) ->
 	self.parent = parent
 
 func remove_access_point(direction: Vector2i) -> void:
-	# this will need to be changed
 	for i in range(chunk["access_points"].size()):
 		if chunk["access_points"][i]["direction"] == direction:
 			chunk["access_points"].remove_at(i)
-			print("removed access point")
 			break
 	mapfactory.available_entrances -= 1
-	print("lowered available entrances down to ", mapfactory.available_entrances)
 	
 func build() -> void:
-	var width:int = chunk["width"]
+
 	for i in range(chunk["layers"][0]["data"].size()):
 		var tile_id:int = chunk["layers"][0]["data"][i] - 1
-		if tile_id >= 0:  # Ignore invalid tiles (e.g., ID 0 in Tiled means empty)
-			var x = i % width  # <- error `invalid operands 'int' and 'float' in operator '%'.
-			var y = i / width  # y-coordinate on the map
-			var tile_x = tile_id % 11  # x-coordinate in the tileset
-			var tile_y = tile_id / 11  # y-coordinate in the tileset
+		if tile_id >= 0: # tiled tilesets start at 1. zero is no tile.
+			var x = i % width 
+			var y = i / width
+			var tile_x = tile_id % 11
+			var tile_y = tile_id / 11
 			tilemapRef.set_cell(position + Vector2i(x, y), 0, Vector2i(tile_x, tile_y))
 			
-	# use the global tilemap ref to add the room to the game
 	mapfactory.available_entrances += chunk["access_points"].size()
 	mapfactory.placed_rooms += 1
-	print("increased available entrances up to ", mapfactory.available_entrances, " and placed rooms to ", mapfactory.placed_rooms)
+	

@@ -22,20 +22,11 @@ func build(tilemap: TileMapLayer) -> void:
 		var parent: Room = prototype.parent
 
 		var child = Room.new()
-		child.Init_Room(parent, prototype.parent_output, true, tilemap)
-
-		var result: bool
-		
-		#result = is_in_bounds([child])
-		#if !result:
-			#continue
+		child.Init_Room(parent, prototype.parent_output, tilemap)
 
 		var child_prototypes: Array[Room] = child.get_prototypes()
-#
-		#result = is_in_bounds(child_prototypes)
-		#if !result:
-			#continue
 
+  var result: bool
 		result = room_collide(child, rooms)
 		if result: 
 			continue
@@ -49,7 +40,6 @@ func build(tilemap: TileMapLayer) -> void:
 			continue
 		print("removed ghost. Count at: ", prototypes.size())
 		prototypes.erase(prototype)
-
 
 		result = room_collide(child, prototypes)
 		if result:
@@ -79,15 +69,3 @@ func room_collide(room: Room, rooms: Array[Room]) -> bool:
 				continue
 			return true
 	return false
-	
-func is_in_bounds(rooms:Array[Room]) -> bool:
-	for room in rooms:
-		if room.left < 2 or room.left > mapfactory.board_size - 2:
-			return false
-		if room.top < 2 or room.top > mapfactory.board_size - 2:
-			return false
-		if room.right < 2 or room.right > mapfactory.board_size - 2:
-			return false
-		if room.bottom < 2 or room.bottom > mapfactory.board_size - 2:
-			return false
-	return true

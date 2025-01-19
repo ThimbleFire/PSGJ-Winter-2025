@@ -1,6 +1,6 @@
 this is my repo for my piratesoftware 2025 winter gamejam game. this readme will serve as my development diary.
 
-# 16/1/2024 @ 11:30pm in London
+# 16/1/2025 @ 11:30pm in London
 
 I'm at work thinking of what to build. i don't know what the theme is yet.
 I'd like to record my development live and submit it to YouTube as evidence of not using existing material, though i also doubt anyone will take interest as there's some 35K other participants. 
@@ -19,7 +19,7 @@ Since I'm working full time I'll only be about to work on the game 6-7 hours a d
 
 * I'll add health to everything and see how that feels, then start fleshing out the game as much as i can with the time constraints.
 
-# 17/1/2024 @ 1:09am
+# 17/1/2025 @ 1:09am
 
 Game jam starts in 13 hours. I asked a mate if he'd be up for doing music for the game and he said maybe. I explained the theme and he thinks the scope is too big so, might have to dial back a few things like affixes, instead opting for unique behaviours for items. One such behaviour he suggested was doubling damage but attacking / firing projectiles to the sides. I agree such behaviour is more memorable than simply _+2 to range damage_.
 We're in agreement on no turn based combat.
@@ -50,14 +50,26 @@ We can use a sql database to store our pieces so we can quickly find which piece
 **NOTE: Check whether the sql extension works in the browser release**.
 Because I can't be bothered to manually write out all the rooms in the database I'll just write each .json file to the database at the start of runtime.
 
-# 17/1/2024 @ 1:44am
+# 17/1/2025 @ 1:44am
 
 How are we going to handle item behaviour?
 
 I guess when we equip an item it'll subscribe to the behaviour which triggers its own behaviour.
 Not sure that'll work for changing controls. Maybe attack / projectile direction will be repesented by a value and that value will be offset by the item. Oh. Yeah that works. Like on equip you invert a value and invert it again on re-equip. That way you could have a second item that counters the invert so you essentially get all the benefit without the negative. Yeah idk, we'll see. Kind of irrelevent right now.
 
-# 18/1/2024 @ 3:37am
+# 18/1/2025 @ 3:37am
 
 Pretty bad start to day 1. Sorta went in circles all afternoon trying to get some old code working. It's frustrating, I seem to write my best code while I'm not at home.
 Since my old room data is written in XML I'm gonna try re-use them.
+
+# 19/1/2025
+
+day 2 went much better, generating a maze. should be able to do larger rooms but for testing purposes all rooms are 7x7 atm.
+There's a lot of areas I'd like to improve the map generator in but I don't think I have the time. I anticipate it taking the better part of a day to model and animate the ai-player-not-player and a variety of aggressive mobs. plus I've still got to implement pathfinding.
+
+so I'll spend a couple hours building a few interesting keystones then I'll start modelling and animating. 
+
+I'm concerned the combat will be underwhelming, it's not something I put a lot of time into.
+I guess I can make the ai extremely weak, and basically the sword (the player) fires projectiles at mobs before the ai reaches them. so it fires projectiles on lmb, shields from projectiles on rmb.
+
+once modelling and animation is done I'd like to have a cutscene where the ai picks up the sword and the sword (the player) speaks to the ai.
